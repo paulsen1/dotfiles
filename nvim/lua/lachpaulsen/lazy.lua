@@ -45,6 +45,28 @@ local plugins = {
     {
         "hrsh7th/nvim-cmp",
     },
+    {
+        "NvChad/nvterm",
+    },
+    {
+        "nvim-tree/nvim-web-devicons",
+    },
+    {
+        "nvim-treesitter/nvim-treesitter",
+        lazy = false,
+    },
+    {
+        "lewis6991/gitsigns.nvim",
+    },
+    {
+        "numToStr/Comment.nvim",
+    },
+    {
+        "nvim-tree/nvim-tree.lua",
+    },
+    {
+        "nvim-telescope/telescope.nvim",
+    },
 }
 local opts = {}
 
