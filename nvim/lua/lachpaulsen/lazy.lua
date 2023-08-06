@@ -159,6 +159,14 @@ local plugins = {
     },
     {
         "lewis6991/gitsigns.nvim",
+        opts = function ()
+            return require('lachpaulsen.plugins.gitsigns')
+        end,
+        lazy = false,
+        keys = mapping.mode_to_lazy(require("lachpaulsen.mappings.gitsigns")),
+        config = function(_, opts)
+            require("gitsigns").setup(opts)
+        end
     },
     {
         "numToStr/Comment.nvim",
