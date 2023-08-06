@@ -10,7 +10,7 @@
 [x] 4. Set up git things.
 [x]     a) Set up toggleterm with lazygit
 [x]     b) gitsigns
-[ ] 5. Set up comment.nvim
+[x] 5. Set up comment.nvim
 [ ] 6. Set up toggleterm
 [ ] 7. Harpoon?
 [ ] 8. Refactoring?
