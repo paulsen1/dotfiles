@@ -151,9 +151,6 @@ local plugins = {
         end
     },
     {
-        "NvChad/nvterm",
-    },
-    {
         "nvim-treesitter/nvim-treesitter",
         lazy = false,
     },
