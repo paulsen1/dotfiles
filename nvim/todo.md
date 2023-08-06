@@ -1,7 +1,7 @@
 [x] 1. Set up LSP things
 [x]     a) nvim-lspconfig
 [x]     b) nvim-cmp
-[ ]     c) mason.nvim
+[x]     c) mason.nvim
 [ ] 2. Set up telescope
 [ ] 3. Set up nvim-tree
 [ ] 4. Set up git things.
