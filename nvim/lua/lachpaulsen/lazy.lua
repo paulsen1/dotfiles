@@ -187,6 +187,10 @@ local plugins = {
             require('trouble').setup({})
         end
     },
+    {
+        "github/copilot.vim",
+        lazy = false,
+    }
 }
 local opts = {}
 
