@@ -18,27 +18,25 @@ local plugins = {
     {
         "catppuccin/nvim",
         name = "catppuccin",
-        priority = 1000,
+        lazy = false,
         config = function()
             vim.cmd [[colorscheme catppuccin-mocha]]
         end
     },
     -- LSP Things
     {
-        "williamboman/mason.nvim",
+        "neovim/nvim-lspconfig",
         event = { "BufRead", "BufWinEnter", "BufNewFile" },
+        config = function()
+            require("lachpaulsen.plugins.lsp")
+        end,
+        keys = mapping.mode_to_lazy(require("lachpaulsen.mappings.lsp")),
+    },
+    {
+        "williamboman/mason.nvim",
         dependencies = {
             {
                 "williamboman/mason-lspconfig.nvim",
-                dependencies = {
-                    {
-                        "neovim/nvim-lspconfig",
-                        config = function()
-                            require("lachpaulsen.plugins.lsp")
-                        end,
-                        keys = mapping.mode_to_lazy(require("lachpaulsen.mappings.lsp")),
-                    }
-                },
                 config = function()
                     require("mason-lspconfig").setup()
                 end
@@ -89,6 +87,15 @@ local plugins = {
             require("lachpaulsen.plugins.nvim-cmp")
         end,
     },
+    -- Display LSP info while it is loading.
+    {
+        "j-hui/fidget.nvim",
+        tag = "legacy",
+        event = "LspAttach",
+        config = function ()
+            require("fidget").setup()
+        end
+    },
     {
         "NvChad/nvterm",
     },
@@ -97,7 +104,6 @@ local plugins = {
     },
     {
         "nvim-treesitter/nvim-treesitter",
-        lazy = false,
     },
     {
         "lewis6991/gitsigns.nvim",
