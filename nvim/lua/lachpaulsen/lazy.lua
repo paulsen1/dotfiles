@@ -151,6 +151,16 @@ local plugins = {
         end
     },
     {
+        "NvChad/nvterm",
+        opts = function ()
+            return require('lachpaulsen.plugins.nvterm')
+        end,
+        config = function (_, opts)
+            require('nvterm').setup(opts)
+            require('lachpaulsen.mappings.nvterm')
+        end
+    },
+    {
         "nvim-treesitter/nvim-treesitter",
         lazy = false,
     },
@@ -183,7 +193,7 @@ local plugins = {
         "folke/trouble.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         keys = mapping.mode_to_lazy(require("lachpaulsen.mappings.trouble")),
-        config = function ()
+        config = function()
             require('trouble').setup({})
         end
     },
