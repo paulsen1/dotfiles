@@ -6,7 +6,7 @@
 [x]     a) Find file name
 [x]     b) Find in file
 [x]     c) Both of the above
-[ ] 3. Set up nvim-tree
+[x] 3. Set up nvim-tree
 [ ] 4. Set up git things.
 [ ]     a) fugitive??
 [ ]     b) gitsigns

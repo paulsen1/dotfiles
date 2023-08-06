@@ -128,10 +128,19 @@ local plugins = {
         end
     },
     {
-        "NvChad/nvterm",
+        "nvim-tree/nvim-tree.lua",
+        dependencies = {
+            {
+                "nvim-tree/nvim-web-devicons",
+            },
+        },
+        keys = mapping.mode_to_lazy(require("lachpaulsen.mappings.nvim-tree")),
+        config = function ()
+            require("lachpaulsen.plugins.nvim-tree")
+        end
     },
     {
-        "nvim-tree/nvim-web-devicons",
+        "NvChad/nvterm",
     },
     {
         "nvim-treesitter/nvim-treesitter",
@@ -142,9 +151,6 @@ local plugins = {
     },
     {
         "numToStr/Comment.nvim",
-    },
-    {
-        "nvim-tree/nvim-tree.lua",
     },
 }
 local opts = {}
