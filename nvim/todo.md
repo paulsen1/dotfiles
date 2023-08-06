@@ -7,9 +7,9 @@
 [x]     b) Find in file
 [x]     c) Both of the above
 [x] 3. Set up nvim-tree
-[ ] 4. Set up git things.
+[x] 4. Set up git things.
 [x]     a) Set up toggleterm with lazygit
-[ ]     b) gitsigns
+[x]     b) gitsigns
 [ ] 5. Set up comment.nvim
 [ ] 6. Set up toggleterm
 [ ] 7. Harpoon?

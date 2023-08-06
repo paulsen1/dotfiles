@@ -1,6 +1,6 @@
 return {
     n = {
-        ["<leader>g"] = {
+        ["<leader>gg"] = {
             method = function()
                 local Terminal = require('toggleterm.terminal').Terminal
                 local lazygit = Terminal:new({
@@ -11,7 +11,7 @@ return {
                 })
                 lazygit:toggle()
             end,
-            description = "Find file by name.",
+            description = "Load lazygit in a floating terminal window.",
         },
     },
 }
