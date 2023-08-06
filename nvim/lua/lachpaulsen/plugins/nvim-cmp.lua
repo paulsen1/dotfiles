@@ -1,5 +1,80 @@
 local cmp = require('cmp')
 
+local cmp_ui = {
+    icons = true,
+    lspkind_text = true,
+    style = "default",            -- default/flat_light/flat_dark/atom/atom_colored
+    border_color = "grey_fg",     -- only applicable for "default" style, use color names from base30 variables
+    selected_item_bg = "colored", -- colored / simple
+}
+local cmp_style = cmp_ui.style
+
+local field_arrangement = {
+    atom = { "kind", "abbr", "menu" },
+    atom_colored = { "kind", "abbr", "menu" },
+}
+
+local formatting_style = {
+    -- default fields order i.e completion word + item.kind + item.kind icons
+    fields = field_arrangement[cmp_style] or { "abbr", "kind", "menu" },
+    format = function(_, item)
+        local icons = {
+            Namespace = "󰌗",
+            Text = "󰉿",
+            Method = "󰆧",
+            Function = "󰆧",
+            Constructor = "",
+            Field = "󰜢",
+            Variable = "󰀫",
+            Class = "󰠱",
+            Interface = "",
+            Module = "",
+            Property = "󰜢",
+            Unit = "󰑭",
+            Value = "󰎠",
+            Enum = "",
+            Keyword = "󰌋",
+            Snippet = "",
+            Color = "󰏘",
+            File = "󰈚",
+            Reference = "󰈇",
+            Folder = "󰉋",
+            EnumMember = "",
+            Constant = "󰏿",
+            Struct = "󰙅",
+            Event = "",
+            Operator = "󰆕",
+            TypeParameter = "󰊄",
+            Table = "",
+            Object = "󰅩",
+            Tag = "",
+            Array = "[]",
+            Boolean = "",
+            Number = "",
+            Null = "󰟢",
+            String = "󰉿",
+            Calendar = "",
+            Watch = "󰥔",
+            Package = "",
+            Copilot = "",
+            Codeium = "",
+            TabNine = "",
+        }
+        local icon = (cmp_ui.icons and icons[item.kind]) or ""
+
+        if cmp_style == "atom" or cmp_style == "atom_colored" then
+            icon = " " .. icon .. " "
+            item.menu = cmp_ui.lspkind_text and "   (" .. item.kind .. ")" or ""
+            item.kind = icon
+        else
+            icon = cmp_ui.lspkind_text and (" " .. icon .. " ") or icon
+            item.kind = string.format("%s %s", icon, cmp_ui.lspkind_text and item.kind or "")
+        end
+
+        return item
+    end,
+}
+
 local function border(hl_name)
     return {
         { "╭", hl_name },
@@ -22,11 +97,13 @@ cmp.setup({
             require("luasnip").lsp_expand(args.body)
         end,
     },
+    formatting = formatting_style,
     window = {
         completion = {
             side_padding = 1,
             winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:PmenuSel",
             scrollbar = false,
+            border = border "CmpBorder",
         },
         documentation = {
             border = border "CmpDocBorder",
@@ -76,5 +153,4 @@ cmp.setup({
         { name = "nvim_lua" },
         { name = "path" },
     },
-
 })
