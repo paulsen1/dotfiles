@@ -14,7 +14,7 @@
 [ ] 6. Set up toggleterm
 [ ] 7. Harpoon?
 [ ] 8. Refactoring?
-[ ] 9. trouble.nvim
+[x] 9. trouble.nvim
 [ ] 10. copilot 
 [ ] 11. nvchad buffer thingo
 [ ] 12. nvim.notify

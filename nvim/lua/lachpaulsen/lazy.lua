@@ -179,6 +179,14 @@ local plugins = {
             require('Comment').setup()
         end
     },
+    {
+        "folke/trouble.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        keys = mapping.mode_to_lazy(require("lachpaulsen.mappings.trouble")),
+        config = function ()
+            require('trouble').setup({})
+        end
+    },
 }
 local opts = {}
 
