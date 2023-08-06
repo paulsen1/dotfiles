@@ -15,6 +15,6 @@
 [ ] 7. Harpoon?
 [ ] 8. Refactoring?
 [x] 9. trouble.nvim
-[ ] 10. copilot 
+[x] 10. copilot 
 [ ] 11. nvchad buffer thingo
 [ ] 12. nvim.notify
