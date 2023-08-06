@@ -3,6 +3,9 @@
 [x]     b) nvim-cmp
 [x]     c) mason.nvim
 [ ] 2. Set up telescope
+[ ]     a) Find file name
+[ ]     b) Find in file
+[ ]     c) Both of the above
 [ ] 3. Set up nvim-tree
 [ ] 4. Set up git things.
 [ ]     a) fugitive??
