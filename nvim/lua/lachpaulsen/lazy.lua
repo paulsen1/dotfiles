@@ -23,6 +23,8 @@ local plugins = {
         lazy = false,
         config = function()
             vim.cmd [[colorscheme catppuccin-mocha]]
+            vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+            vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
         end
     },
     -- LSP Things
@@ -135,8 +137,15 @@ local plugins = {
             },
         },
         keys = mapping.mode_to_lazy(require("lachpaulsen.mappings.nvim-tree")),
-        config = function ()
+        config = function()
             require("lachpaulsen.plugins.nvim-tree")
+        end
+    },
+    {
+        "akinsho/toggleterm.nvim",
+        keys = mapping.mode_to_lazy(require("lachpaulsen.mappings.toggleterm")),
+        config = function()
+            require('lachpaulsen.plugins.toggleterm')
         end
     },
     {

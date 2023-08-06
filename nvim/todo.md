@@ -8,10 +8,10 @@
 [x]     c) Both of the above
 [x] 3. Set up nvim-tree
 [ ] 4. Set up git things.
-[ ]     a) fugitive??
+[x]     a) Set up toggleterm with lazygit
 [ ]     b) gitsigns
 [ ] 5. Set up comment.nvim
-[ ] 6. Set up nvterm
+[ ] 6. Set up toggleterm
 [ ] 7. Harpoon?
 [ ] 8. Refactoring?
 [ ] 9. trouble.nvim
