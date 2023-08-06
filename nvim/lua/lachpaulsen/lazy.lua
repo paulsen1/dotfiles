@@ -152,10 +152,10 @@ local plugins = {
     },
     {
         "NvChad/nvterm",
-        opts = function ()
+        opts = function()
             return require('lachpaulsen.plugins.nvterm')
         end,
-        config = function (_, opts)
+        config = function(_, opts)
             require('nvterm').setup(opts)
             require('lachpaulsen.mappings.nvterm')
         end
@@ -163,6 +163,16 @@ local plugins = {
     {
         "nvim-treesitter/nvim-treesitter",
         lazy = false,
+        config = function()
+            require("nvim-treesitter.configs").setup({
+                ensure_installed = { "lua" },
+                highlight = {
+                    enable = true,
+                    use_languagetree = true,
+                },
+                indent = { enable = true },
+            })
+        end
     },
     {
         "lewis6991/gitsigns.nvim",
