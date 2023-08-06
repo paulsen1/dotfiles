@@ -18,3 +18,4 @@
 [x] 10. copilot 
 [ ] 11. nvchad buffer thingo
 [ ] 12. nvim.notify
+[ ] 13. statusline
