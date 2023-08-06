@@ -25,17 +25,24 @@ local plugins = {
     },
     -- LSP Things
     {
-        "neovim/nvim-lspconfig",
-        config = function()
-            require("lachpaulsen.plugins.lsp")
-        end,
-        keys = mapping.mode_to_lazy(require("lachpaulsen.mappings.lsp")),
-    },
-    {
         "williamboman/mason.nvim",
-        lazy = false,
+        event = { "BufRead", "BufWinEnter", "BufNewFile" },
         dependencies = {
-            "neovim/nvim-lspconfig",
+            {
+                "williamboman/mason-lspconfig.nvim",
+                dependencies = {
+                    {
+                        "neovim/nvim-lspconfig",
+                        config = function()
+                            require("lachpaulsen.plugins.lsp")
+                        end,
+                        keys = mapping.mode_to_lazy(require("lachpaulsen.mappings.lsp")),
+                    }
+                },
+                config = function()
+                    require("mason-lspconfig").setup()
+                end
+            },
         },
         config = function()
             require("mason").setup()
