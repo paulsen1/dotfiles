@@ -26,7 +26,6 @@ local plugins = {
     -- LSP Things
     {
         "neovim/nvim-lspconfig",
-        lazy = false,
         config = function()
             require("lachpaulsen.plugins.lsp")
         end,
@@ -50,12 +49,9 @@ local plugins = {
                 -- snippet plugin
                 "L3MON4D3/LuaSnip",
                 dependencies = "rafamadriz/friendly-snippets",
-                opts = {
-                    history = true,
-                    updateevents = "TextChanged,TextChangedI",
-                },
-                config = function(_, opts)
-                    require("luasnip").config.set_config(opts)
+                config = function()
+                    require('lachpaulsen.plugins.luasnip')
+                    require('lachpaulsen.mappings.luasnip')
                 end,
             },
             -- autopairing of (){}[] etc
