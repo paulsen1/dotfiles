@@ -2,10 +2,10 @@
 [x]     a) nvim-lspconfig
 [x]     b) nvim-cmp
 [x]     c) mason.nvim
-[ ] 2. Set up telescope
-[ ]     a) Find file name
-[ ]     b) Find in file
-[ ]     c) Both of the above
+[x] 2. Set up telescope
+[x]     a) Find file name
+[x]     b) Find in file
+[x]     c) Both of the above
 [ ] 3. Set up nvim-tree
 [ ] 4. Set up git things.
 [ ]     a) fugitive??

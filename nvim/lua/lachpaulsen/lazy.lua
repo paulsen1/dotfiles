@@ -14,6 +14,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
+    -- Include plenary for plugin development.
+    'nvim-lua/plenary.nvim',
     -- Theme
     {
         "catppuccin/nvim",
@@ -46,6 +48,7 @@ local plugins = {
             require("mason").setup()
         end
     },
+    -- Autocomplete config snippets and autopairing
     {
         "hrsh7th/nvim-cmp",
         event = "InsertEnter",
@@ -92,8 +95,36 @@ local plugins = {
         "j-hui/fidget.nvim",
         tag = "legacy",
         event = "LspAttach",
-        config = function ()
+        config = function()
             require("fidget").setup()
+        end
+    },
+    -- Configure telescope to search the codebases
+    {
+        "nvim-telescope/telescope.nvim",
+        tag = '0.1.2',
+        dependencies = {
+            'nvim-lua/plenary.nvim'
+        },
+        keys = mapping.mode_to_lazy(require("lachpaulsen.mappings.telescope")),
+        opts = function()
+            return require("lachpaulsen.plugins.telescope")
+        end,
+        config = function(_, opts)
+            require('telescope').setup(opts)
+        end
+    },
+    {
+        'stevearc/dressing.nvim',
+        event = "BufReadPre",
+        lazy = false,
+        config = function()
+            require('dressing').setup({
+                input = { relative = "editor" },
+                select = {
+                    backend = { "telescope", "fzf", "builtin" },
+                },
+            })
         end
     },
     {
@@ -104,6 +135,7 @@ local plugins = {
     },
     {
         "nvim-treesitter/nvim-treesitter",
+        lazy = false,
     },
     {
         "lewis6991/gitsigns.nvim",
@@ -113,9 +145,6 @@ local plugins = {
     },
     {
         "nvim-tree/nvim-tree.lua",
-    },
-    {
-        "nvim-telescope/telescope.nvim",
     },
 }
 local opts = {}
