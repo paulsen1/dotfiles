@@ -210,6 +210,13 @@ local plugins = {
     {
         "github/copilot.vim",
         lazy = false,
+    },
+    {
+        "ThePrimeagen/harpoon",
+        keys = mapping.mode_to_lazy(require("lachpaulsen.mappings.harpoon")),
+        config = function()
+            require('harpoon').setup()
+        end
     }
 }
 local opts = {}
